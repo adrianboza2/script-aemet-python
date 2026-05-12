@@ -18,7 +18,7 @@ Script en Python que consulta el RSS oficial de AEMET (Agencia Estatal de Meteor
 
 ### Contexto Real
 
-Este proyecto nacio durante mis **practicas en FCC Medio Ambiente** (430h, Tecnico de Soporte IT). La empresa necesitaba monitorizar alertas meteorologicas en tiempo real para **proteger al personal de campo** ante condiciones adversas.
+Este proyecto nacio durante mis practicas formativas. La empresa necesitaba monitorizar alertas meteorologicas en tiempo real para tener informacion actualizada, detallada y precisa ante condiciones adversas.
 
 **El problema:** No existia un sistema automatizado que detectara cambios en los avisos de AEMET y notificara al equipo de operaciones de forma inmediata.
 
@@ -172,7 +172,7 @@ Ejecucion del script
 | Control de procesos | Gestion de procesos en Windows y Linux |
 | Configuracion segura | Variables de entorno + .env, credenciales fuera del codigo |
 | Cross-platform | Compatibilidad Windows/Linux probada en produccion |
-| Resolucion de problemas reales | Proyecto usado en entorno empresarial real (FCC Medio Ambiente) |
+| Resolucion de problemas reales | Proyecto desarrollado durante practicas formativas en un entorno empresarial real |
 
 ---
 
@@ -197,5 +197,5 @@ MIT
   <a href="https://www.linkedin.com/in/adri%C3%A1n-boza-su%C3%A1rez-51623a184/">LinkedIn</a> ·
   ASIR · Cloud Security Track
   <br><br>
-  <sub>Desarrollado durante practicas en <b>FCC Medio Ambiente</b></sub>
+  <sub>Desarrollado durante practicas formativas</sub>
 </div>
