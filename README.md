@@ -18,7 +18,7 @@ Script en Python que consulta el RSS oficial de AEMET (Agencia Estatal de Meteor
 
 ### Contexto Real
 
-Este proyecto nacio durante mis **practicas en FCC Medio Ambiente** (430h, Tecnico de Soporte IT). La empresa necesitaba monitorizar alertas meteorologicas en tiempo real para **proteger al personal de campo** ante condiciones adversas.
+Este proyecto nacio durante mis prácticas formativas. La empresa necesitaba monitorizar alertas meteorologicas en tiempo real para tener información actualizada, detallada y precisa ante condiciones adversas.
 
 **El problema:** No existia un sistema automatizado que detectara cambios en los avisos de AEMET y notificara al equipo de operaciones de forma inmediata.
 
