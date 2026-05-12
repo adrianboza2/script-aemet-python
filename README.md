@@ -12,6 +12,10 @@
 
 ---
 
+<p align="center">
+  <img src="img/alertaroja.png" alt="Ventana de alerta roja AEMET" width="500">
+</p>
+
 ## Descripcion
 
 Script en Python que consulta el RSS oficial de AEMET (Agencia Estatal de Meteorologia), detecta cambios en los avisos meteorologicos y notifica automaticamente al equipo correspondiente mediante correo electronico y ventanas emergentes en el escritorio.
