@@ -53,19 +53,19 @@ ENVIAR_EMAIL = os.getenv("AEMET_EMAIL", "True").lower() == "true"
 NOTIFICAR_DOWNGRADES = os.getenv("AEMET_NOTIFY_DOWNGRADE", "True").lower() == "true"
 NOTIFICAR_RESOLUCION = os.getenv("AEMET_NOTIFY_RESOLVED", "True").lower() == "true"
 
-# Credenciales OBLIGATORIAS desde variables de entorno
+# Credenciales (solo obligatorias si el email está habilitado)
 EMAIL_DE = os.getenv("AEMET_EMAIL_FROM")
 CLAVE_APP_GMAIL = os.getenv("AEMET_EMAIL_PASSWORD")
 
-if not EMAIL_DE:
-    print("❌ ERROR: Debes configurar la variable de entorno AEMET_EMAIL_FROM")
-    print("   Ejemplo: export AEMET_EMAIL_FROM='tu_email@gmail.com'")
-    sys.exit(1)
-
-if not CLAVE_APP_GMAIL:
-    print("❌ ERROR: Debes configurar la variable de entorno AEMET_EMAIL_PASSWORD")
-    print("   Usa una App Password de Gmail: https://myaccount.google.com/apppasswords")
-    sys.exit(1)
+if ENVIAR_EMAIL:
+    if not EMAIL_DE:
+        print("❌ ERROR: AEMET_EMAIL=True pero AEMET_EMAIL_FROM no está configurado")
+        print("   Ejemplo: export AEMET_EMAIL_FROM='tu_email@gmail.com'")
+        sys.exit(1)
+    if not CLAVE_APP_GMAIL:
+        print("❌ ERROR: AEMET_EMAIL=True pero AEMET_EMAIL_PASSWORD no está configurado")
+        print("   Usa una App Password de Gmail: https://myaccount.google.com/apppasswords")
+        sys.exit(1)
 
 CACHE_MAX_ENTRADAS = 500
 CACHE_DIAS_RETENCION = 30
