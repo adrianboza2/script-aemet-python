@@ -1,52 +1,62 @@
-<p align="center">
-  <img src="imagenejemplo.jpg" alt="Ejemplo de ventana de alerta AEMET" width="600">
-</p>
+# Monitor de Alertas AEMET
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.7%2B-3776AB?style=for-the-badge&logo=python&logoColor=white">
-  <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge&logo=license&logoColor=white">
-  <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white">
-  <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black">
-  <img src="https://img.shields.io/badge/Status-Producción-00C853?style=for-the-badge&logo=checkmarx&logoColor=white">
-</p>
+<div align="center">
 
-# 🌩️ Monitor de Alertas AEMET
+![Python](https://img.shields.io/badge/Python-3.7%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 
-Script Python que monitoriza el feed RSS de avisos meteorológicos de **AEMET** y notifica en tiempo real mediante **email HTML** y **ventanas emergentes** cuando se detectan alertas nuevas, escaladas, reducidas o resueltas.
+**Script Python que monitoriza el feed RSS de avisos meteorológicos de AEMET y notifica mediante email HTML y ventanas de escritorio cuando se detectan alertas nuevas, escaladas, reducidas o resueltas.**
+
+</div>
 
 ---
 
-## 🏢 Contexto real
+## Descripcion
 
-Este proyecto nació durante mis **prácticas en FCC Medio Ambiente** (430h, Técnico de Soporte IT). La empresa necesitaba monitorizar alertas meteorológicas en tiempo real para **proteger al personal de campo** ante condiciones adversas.
+Script en Python que consulta el RSS oficial de AEMET (Agencia Estatal de Meteorologia), detecta cambios en los avisos meteorologicos y notifica automaticamente al equipo correspondiente mediante correo electronico y ventanas emergentes en el escritorio.
 
-**El problema:** No existía un sistema automatizado que detectara cambios en los avisos de AEMET y notificara al equipo de operaciones de forma inmediata.
+### Contexto Real
 
-**La solución:** Un script Python ligero con arquitectura Fire & Forget que:
-- Consulta el RSS oficial de AEMET cada N minutos
-- Detecta automáticamente alertas nuevas, escaladas, reducidas o resueltas
-- Notifica por email HTML con código de colores (Rojo/Naranja/Amarillo)
-- Muestra ventanas emergentes no bloqueantes en los puestos de trabajo
-- Funciona en Windows y Linux sin modificaciones
+Este proyecto nacio durante mis **practicas en FCC Medio Ambiente** (430h, Tecnico de Soporte IT). La empresa necesitaba monitorizar alertas meteorologicas en tiempo real para **proteger al personal de campo** ante condiciones adversas.
 
----
+**El problema:** No existia un sistema automatizado que detectara cambios en los avisos de AEMET y notificara al equipo de operaciones de forma inmediata.
 
-## ✨ Características
-
-- 📡 **Parseo de RSS AEMET** (zona configurable, por defecto Madrid 722802)
-- 🔴🟠🟡 **Detección inteligente de nivel**: Rojo, Naranja, Amarillo
-- ⬆️⬇️ **Detección de cambios**: nuevas alertas, escaladas, reducciones y resoluciones
-- 📧 **Notificación por email HTML** vía Gmail con múltiples destinatarios
-- 🪟 **Ventanas de escritorio desacopladas** (procesos hijo independientes, no bloquean)
-- 💾 **Caché atómica** con backup automático y limpieza por tiempo de retención
-- 📋 **Logging rotativo** (10 MB por archivo, hasta 5 rotaciones)
-- 🔄 **Arquitectura Fire & Forget**: el script principal termina rápido; las ventanas viven independientemente
-- 🐧🪟 **Cross-platform**: Windows y Linux
-- 🔒 **Credenciales por entorno** (.env), sin datos sensibles en el código
+**La solucion:** Un script Python ligero con arquitectura Fire & Forget que consulta el RSS, detecta cambios y notifica automaticamente, funcionando en Windows y Linux sin modificaciones.
 
 ---
 
-## 📁 Estructura del proyecto
+## Caracteristicas
+
+| Caracteristica | Descripcion |
+|---|---|
+| Parseo de RSS AEMET | Zona configurable (por defecto Madrid 722802) |
+| Deteccion de nivel | Rojo, Naranja, Amarillo |
+| Deteccion de cambios | Nuevas alertas, escaladas, reducciones y resoluciones |
+| Notificacion email | HTML con codigo de colores via Gmail SMTP |
+| Ventanas emergentes | Procesos hijo independientes, no bloquean la ejecucion |
+| Cache atomica | Backup automatico y limpieza por tiempo de retencion |
+| Logging rotativo | 10 MB por archivo, hasta 5 rotaciones |
+| Cross-platform | Windows y Linux |
+| Configuracion segura | Variables de entorno + .env, credenciales fuera del codigo |
+
+---
+
+## Stack tecnologico
+
+| Componente | Tecnologia |
+|---|---|
+| Lenguaje | Python 3.7+ |
+| RSS Parser | feedparser 6.x |
+| Email | smtplib + Gmail SMTP |
+| UI Ventanas | Tkinter |
+| Cache | JSON con backup atomico |
+| Logging | RotatingFileHandler |
+| Concurrencia | threading + subprocess |
+
+---
+
+## Estructura del repositorio
 
 ```
 script-aemet-python/
@@ -58,21 +68,21 @@ script-aemet-python/
 └── README.md
 ```
 
-Archivos generados en tiempo de ejecución (no incluidos en el repo):
+Archivos generados en tiempo de ejecucion:
 ```
-├── .env                    # Configuración local (ignorado por git)
-├── aemet_cache.json        # Caché de alertas activas/resueltas
-├── aemet_cache.backup.json # Backup automático de la caché
+├── .env                    # Configuracion local (ignorado por git)
+├── aemet_cache.json        # Cache de alertas activas/resueltas
+├── aemet_cache.backup.json # Backup automatico de la cache
 └── alertas.log             # Log rotativo de ejecuciones
 ```
 
 ---
 
-## ⚙️ Requisitos
+## Requisitos
 
 - Python 3.7+
 - Cuenta de Gmail con [App Password](https://myaccount.google.com/apppasswords) (opcional, solo para email)
-- Tkinter (incluido en Python estándar; en Linux: `sudo apt install python3-tk`)
+- Tkinter (incluido en Python estandar; en Linux: `sudo apt install python3-tk`)
 
 ### Dependencias
 
@@ -82,7 +92,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🚀 Configuración y uso
+## Configuracion y uso
 
 ### 1. Clonar
 
@@ -92,25 +102,21 @@ cd script-aemet-python
 pip install -r requirements.txt
 ```
 
-### 2. Configurar (opciones)
+### 2. Configurar
 
 **Sin email (solo ventanas emergentes):**
-```bash
+
+```powershell
 # PowerShell
 $env:AEMET_EMAIL="False"
 python monitor_aemet.py
 ```
 
-**Con email:** Copia `env.example` a `.env` y rellena:
-
-```
-AEMET_EMAIL_FROM=tu_email@gmail.com
-AEMET_EMAIL_PASSWORD=tu_app_password
-```
+**Con email:** Copia `env.example` a `.env` y rellena tus credenciales.
 
 ### 3. Destinatarios
 
-Edita `destinatarios.txt` (un email por línea):
+Edita `destinatarios.txt` (un email por linea):
 
 ```
 # Comentarios con #
@@ -118,104 +124,78 @@ admin@ejemplo.com
 operaciones@ejemplo.com
 ```
 
-### 4. Ejecución periódica
+### 4. Ejecucion periodica
 
-**Windows — Task Scheduler:** Crea una tarea cada 15–30 min con las variables de entorno configuradas en el sistema.
+**Windows - Task Scheduler:** Crea una tarea cada 15-30 min.
 
-**Linux — cron:**
+**Linux - cron:**
+
 ```bash
 crontab -e
 ```
+
 ```cron
 */15 * * * * /usr/bin/python3 /ruta/monitor_aemet.py
 ```
 
-> ⚠️ Las variables de entorno se configuran en el sistema, no en el crontab, por seguridad.
-
 ---
 
-## 🏗️ Arquitectura
+## Arquitectura
 
 ```
-Ejecución del script
-       │
-       ├─── Fetch RSS AEMET
-       ├─── Comparar con caché
-       ├─── Por cada alerta nueva/cambiada:
-       │         ├─── Thread email (async, no bloquea)
-       │         └─── Subprocess ventana (Fire & Forget)
-       ├─── Guardar caché (una sola vez)
-       ├─── Esperar confirmación emails (máx. 60s)
-       └─── Terminar ✅
-              │
-              └── Procesos hijo (ventanas) siguen vivos independientemente
-```
-
-### Diagrama de flujo
-
-```
-RSS AEMET ──> feedparser ──> Comparar con caché ──> ¿Cambio?
-                                                       │
-                                           ┌───────────┴───────────┐
-                                           │                       │
-                                      Email async           Ventana UI
-                                     (thread, daemon)     (subprocess)
-                                           │                       │
-                                      SMTP Gmail             Tkinter GUI
+Ejecucion del script
+       |
+       +--- Fetch RSS AEMET
+       +--- Comparar con cache
+       +--- Por cada alerta nueva/cambiada:
+       |         +--- Thread email (async, no bloquea)
+       |         +--- Subprocess ventana (Fire & Forget)
+       +--- Guardar cache (una sola vez)
+       +--- Esperar confirmacion emails (max. 60s)
+       +--- Terminar
+              |
+              +--- Procesos hijo (ventanas) siguen vivos independientemente
 ```
 
 ---
 
-## 🛠️ Habilidades demostradas
+## Habilidades demostradas
 
-| Habilidad | Implementación |
-|-----------|---------------|
-| **Python scripting** | Lógica completa del monitor, parsing, control de flujo |
-| **Multithreading** | Envío de emails asíncrono sin bloquear el proceso principal |
-| **Subprocess management** | Ventanas desacopladas como procesos hijo independientes |
-| **RSS/XML parsing** | Feedparser 6.x con manejo de errores y reintentos |
-| **SMTP / email automation** | Envío de emails HTML con Gmail y App Passwords |
-| **Logging y persistencia** | Rotación de logs, caché JSON atómica con backup |
-| **Control de procesos** | Gestión de procesos en Windows (DETACHED_PROCESS) y Linux (start_new_session) |
-| **Configuración segura** | Variables de entorno + .env, credenciales fuera del código |
-| **Cross-platform** | Compatibilidad Windows/Linux probada en producción |
-| **Resolución de problemas reales** | Proyecto usado en entorno empresarial real (FCC Medio Ambiente) |
-
----
-
-## 📬 Formato de notificación
-
-El email incluye:
-- Código de colores por nivel (🔴 rojo / 🟠 naranja / 🟡 amarillo)
-- Título y descripción del aviso
-- Timestamp de la notificación
-- Enlace directo a AEMET
-- Emoji indicando el tipo de cambio (⬆️ escalada, ⬇️ reducción, ✅ resuelta)
+| Habilidad | Implementacion |
+|---|---|
+| Python scripting | Logica completa del monitor, parsing, control de flujo |
+| Multithreading | Envio de emails asincrono sin bloquear el proceso principal |
+| Subprocess management | Ventanas desacopladas como procesos hijo independientes |
+| RSS/XML parsing | Feedparser 6.x con manejo de errores y reintentos |
+| SMTP / email automation | Envio de emails HTML con Gmail y App Passwords |
+| Logging y persistencia | Rotacion de logs, cache JSON atomica con backup |
+| Control de procesos | Gestion de procesos en Windows y Linux |
+| Configuracion segura | Variables de entorno + .env, credenciales fuera del codigo |
+| Cross-platform | Compatibilidad Windows/Linux probada en produccion |
+| Resolucion de problemas reales | Proyecto usado en entorno empresarial real (FCC Medio Ambiente) |
 
 ---
 
-## 🔧 Configurar otra zona geográfica
+## Configurar otra zona geografica
 
 1. Ve a [AEMET Avisos](https://www.aemet.es/es/eltiempo/prediccion/avisos)
 2. Selecciona tu comunidad/provincia
-3. El código de zona aparece en la URL del RSS (ej: `CAP_AFAZ722802`)
-4. Cámbialo en `.env`: `AEMET_RSS_URL=...`
+3. El codigo de zona aparece en la URL del RSS (ej: `CAP_AFAZ722802`)
+4. Cambialo en `.env`: `AEMET_RSS_URL=...`
 
 ---
 
-## 📄 Licencia
+## Licencia
 
-MIT — libre para uso personal y educativo.
+MIT
 
 ---
 
-<p align="center">
-  <b>Adrián Boza</b><br>
+<div align="center">
+  <b>Adrian Boza</b><br>
   <a href="https://github.com/adrianboza2">GitHub</a> ·
   <a href="https://www.linkedin.com/in/adri%C3%A1n-boza-su%C3%A1rez-51623a184/">LinkedIn</a> ·
   ASIR · Cloud Security Track
-</p>
-
-<p align="center">
-  <sub>Desarrollado durante prácticas en <b>FCC Medio Ambiente</b> · Proyecto de automatización y administración de sistemas</sub>
-</p>
+  <br><br>
+  <sub>Desarrollado durante practicas en <b>FCC Medio Ambiente</b></sub>
+</div>
