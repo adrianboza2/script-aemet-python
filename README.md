@@ -1,4 +1,8 @@
 <p align="center">
+  <img src="imagenejemplo.jpg" alt="Ejemplo de ventana de alerta AEMET" width="600">
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/Python-3.7%2B-3776AB?style=for-the-badge&logo=python&logoColor=white">
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge&logo=license&logoColor=white">
   <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white">
@@ -208,7 +212,7 @@ MIT — libre para uso personal y educativo.
 <p align="center">
   <b>Adrián Boza</b><br>
   <a href="https://github.com/adrianboza2">GitHub</a> ·
-  <a href="https://linkedin.com/in/adrianboza">LinkedIn</a> ·
+  <a href="https://www.linkedin.com/in/adri%C3%A1n-boza-su%C3%A1rez-51623a184/">LinkedIn</a> ·
   ASIR · Cloud Security Track
 </p>
 
