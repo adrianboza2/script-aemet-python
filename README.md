@@ -200,6 +200,4 @@ MIT
   <a href="https://github.com/adrianboza2">GitHub</a> ·
   <a href="https://www.linkedin.com/in/adri%C3%A1n-boza-su%C3%A1rez-51623a184/">LinkedIn</a> ·
   ASIR · Cloud Security Track
-  <br><br>
-  <sub>Desarrollado durante practicas formativas</sub>
 </div>
