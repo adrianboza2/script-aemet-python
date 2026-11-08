@@ -198,6 +198,6 @@ MIT
 <div align="center">
   <b>Adrian Boza</b><br>
   <a href="https://github.com/adrianboza2">GitHub</a> ·
-  <a href="https://www.linkedin.com/in/adri%C3%A1n-boza-su%C3%A1rez-51623a184/">LinkedIn</a> ·
+  <a href="https://www.linkedin.com/in/adrian-boza-suarez/">LinkedIn</a> ·
   ASIR · Cloud Security Track
 </div>
